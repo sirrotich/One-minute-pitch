@@ -1,4 +1,7 @@
-##           one-minute-pitch
+##           one-minute-pitch  
+
+ ![pitch-podcast-v01](https://user-images.githubusercontent.com/47354971/56416483-ad635f80-6299-11e9-96e8-c7f70e7780b0.jpg)
+
 
 
 ## Desciptions
