@@ -13,8 +13,66 @@ def index():
     title = 'Home - Great chnage start with you'
     return render_template('index.html', title = title)
 
-@main.route('/new_pitch/<int:id>')
+@main.route('/pitch/', methods = ['GET', 'POST'])
 @login_required
 def new_pitch():
-     return render_template('new_pitch.html')
+
+     form = PitchForm()
+
+     if form.validate_on_submit():
+          category = form.category.data
+          pitch = form.pitch.data
+          comment = form.comment.data
+
+          new_pitch = Pitches(title = title, category = category, pitch = pitch, user_id=current_user_id)
+
+          title = 'New Pitch'
+
+          new_pitch.save_pitch()
+
+          return redirect(url_for('main.index'))
+     return render_template('pitch.html', pitch_entry = form)
+
+@main.route('/user/<uname>')
+def category(cate):
+     '''
+     returns pitches byt category
+     '''
+      category = Pitches.get_pitches(cate)
+      title = f'{cate}'
+      return render_template('categories.html',title = title, category = category)
+
+
+@main.route('/user/<uname>')
+def profile(uname):
+    user = User.query.filter_by(author = uname).first()
+
+    if user is None:
+        abort(404)
+
+    return render_template("profile/profile.html", user = user)
+
+@main.route('/user/<uname>/update',methods = ['GET','POST'])
+@login_required
+def update_profile(uname):
+    user = User.query.filter_by(author = uname).first()
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+
+        db.session.add(user)
+        db.session.commit()
+
+        return redirect(url_for('.profile',uname=user.author))
+
+    return render_template('profile/update.html',form =form)
+
+
+
+
+
 
