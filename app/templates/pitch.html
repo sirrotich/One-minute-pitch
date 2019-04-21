@@ -1,4 +1,17 @@
 {% extends 'base.html'%}
-<!-- Content block -->
+{% import "bootstrap/wtf.html" as wtf %}
+
 {% block content %}
+<br>
+<br>
+<div class="container">
+<br>
+<br>
+  {{ wtf.quick_form(pitch_entry) }}
+
+
+</div>
+
+
+
 {% endblock %}
