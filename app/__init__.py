@@ -2,6 +2,11 @@ from flask import Flask
 from .config import DevConfig
 from flask_bootstrap import Bootstrap
 
+
+login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'auth.login'
+
 bootstrap = Bootstrap()
 
 def create_app(config_name):
