@@ -3,13 +3,13 @@
  ![pitch-podcast-v01](https://user-images.githubusercontent.com/47354971/56416483-ad635f80-6299-11e9-96e8-c7f70e7780b0.jpg)
 
 
-
 ## Desciptions
 
 one-minute-pitch is a web based application that allows users to give a pitch about anything they take in concern or like it.
 
 ## users interface
 users get get various choices on what they want to pitch about and on acccess they can pitch also comments and vote for various pitches
+
 
 ## overview on opening site
 
