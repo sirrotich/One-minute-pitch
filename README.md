@@ -15,7 +15,7 @@ users get get various choices on what they want to pitch about and on acccess th
 
 ## To view the live site:
 
- <!-- https://rotichnews.herokuapp.com/ -->
+  [https://ideapitch.herokuapp.com/]
 
 ## Technologies used
 
