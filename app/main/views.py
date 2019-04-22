@@ -1,7 +1,7 @@
-from flask import render_template,redrect,url_for
+from flask import render_template,redirect,url_for
 from . import main
 from .. import db,photos
-from ..models import Pitches,Users,Comments
+from ..models import Pitches,User,Comments
 from .forms import PitchForm,CommentForm,UpdateProfile
 from flask_login import login_required,current_user
 
@@ -10,8 +10,10 @@ from flask_login import login_required,current_user
 #views
 @main.route('/')
 def index():
-    title = 'Home - Great chnage start with you'
-    return render_template('index.html', title = title)
+
+    message= "Hello"
+    title= 'Pitch It Ip!'
+    return render_template('index.html', message=message,title=title)
 
 @main.route('/pitch/', methods = ['GET', 'POST'])
 @login_required
@@ -38,9 +40,9 @@ def category(cate):
      '''
      returns pitches byt category
      '''
-      category = Pitches.get_pitches(cate)
-      title = f'{cate}'
-      return render_template('categories.html',title = title, category = category)
+     category = Pitches.get_pitches(cate)
+     title = f'{cate}'
+     return render_template('categories.html',title = title, category = category)
 
 
 @main.route('/user/<uname>')
